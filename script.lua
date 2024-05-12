@@ -1,3 +1,7 @@
+red = 21
+yellow = 23
+
+
 craftParams = {}
 
 function createDirectory(path)
@@ -47,6 +51,25 @@ function onPlace(x, y, z, blk)
             end
         end     
         if blk2 ~= 47 then 
+            if blk3 == 47 then
+                if blk == 38 then
+                World.setBlk(x, y, z, 0)
+                World.setBlk(x, y-1, z, 0)
+                Entity.spawnDrop(x, y, z, red, 1)
+                end
+                if blk == 37 then
+                    World.setBlk(x, y, z, 0)
+                    World.setBlk(x, y-1, z, 0)
+                    Entity.spawnDrop(x, y, z, yellow, 1)
+                end
+                if blk == 44 then
+                    if blk2 == 44 then
+                        World.setBlk(x, y, z, 0)
+                        World.setBlk(x, y-1, z, 0)
+                        Entity.spawnDrop(x, y, z, 43, 1)
+                    end
+                end
+            end
         else
             if blk == 5 then
                 World.setBlk(x, y, z, 0)
@@ -60,13 +83,13 @@ function onPlace(x, y, z, blk)
                 World.setBlk(x, y, z, 0)
                 Entity.spawnDrop(x, y, z, 45, 1)
             end
-            if blk == 44 then
-                World.setBlk(x, y, z, 0)
-                Entity.spawnDrop(x, y, z, 43, 1)
-            end
             if blk == 1 then
                 World.setBlk(x, y, z, 0)
                 Entity.spawnDrop(x, y, z, 42, 1)
+            end
+            if blk == 3 then
+                World.setBlk(x, y, z, 0)
+                Entity.spawnDrop(x, y, z, 2, 1)
             end
         end
     end
